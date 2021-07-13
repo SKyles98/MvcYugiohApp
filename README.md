@@ -1,8 +1,8 @@
 # Yugioh DataBase App
-   -This is a Yugioh Application that allows users to:
-     -Look through a Database of all cards and new cards that get released.
-     -Create,Read,Update,Delete decks to their hearts content.
-     -View a updated banlist of all cards.
+   - This is a Yugioh Application that allows users to:
+     - Look through a Database of all cards and new cards that get released.
+     - Create,Read,Update,Delete decks to their hearts content.
+     - View a updated banlist of all cards.
      - Simulate a duel enviroment using a calculator that keeps track of you and your opponents life points(comes with coin toss and dice rolls).
      - Updates coming soon!
      
@@ -21,16 +21,16 @@
       
       
 ## Tech Stack and Libraries used:
-   -100% Java
-   -Retrofit
-   -RxJava
-   -RxAndroid
-   -MPAndroidChart
-   -Sqlite
-   -SharedPreferences
-   -Glide
+   - 100% Java
+   - Retrofit
+   - RxJava
+   - RxAndroid
+   - MPAndroidChart
+   - Sqlite
+   - SharedPreferences
+   - Glide
    - Architecture
-      -MVC Architecture (Model-View-Controller)
+      - MVC Architecture (Model-View-Controller)
       -  View are thrown into standalone classes
       -  Models Act as controllers and communicates with view classes through interfaces
       
