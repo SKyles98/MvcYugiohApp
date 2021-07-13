@@ -12,7 +12,7 @@
       
       
       
-## _Tech Stack and Libraries used_:
+##_Tech Stack and Libraries used_:
    -100% Java
    -Retrofit
    -RxJava
@@ -27,7 +27,7 @@
       -  Models Act as controllers and communicates with view classes through interfaces
       
  
- ## _Author
+ ##_Author
    -Saleef Kyles
 
 
