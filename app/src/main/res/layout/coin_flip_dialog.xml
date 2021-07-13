@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <ImageView
+        android:id="@+id/coinImage"
+        android:layout_width="215dp"
+        android:layout_height="135dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/coinheads"/>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/flipButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/coinImage"
+        android:layout_alignParentEnd="true"
+
+        android:backgroundTint="@color/blue_grey"
+        android:text="@string/flip" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/cancelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/coinImage"
+        android:layout_alignParentStart="true"
+        android:backgroundTint="@color/blue_grey"
+        android:text="@string/cancel" />
+
+</RelativeLayout>

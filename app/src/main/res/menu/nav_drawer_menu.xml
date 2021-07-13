@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/database"
+            android:icon="@drawable/database"
+            app:showAsAction="ifRoom"
+            android:title="@string/database" />
+        <item
+            android:id="@+id/decks"
+            android:icon="@drawable/cards"
+            android:title="@string/decks"
+            app:showAsAction="ifRoom"/>
+
+        <item
+            android:id="@+id/calculator"
+            android:icon="@drawable/ic_calculator"
+            android:title="@string/calculator"
+            app:showAsAction="ifRoom"/>
+
+    </group>
+
+
+</menu>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_marginTop="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="100dp">
+
+
+    <RelativeLayout
+        android:id="@+id/cardLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_green">
+
+        <TextView
+            android:id="@+id/banlistTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="305dp"
+            android:layout_marginTop="0dp"
+            android:text="Limited (1)"
+            android:textSize="20sp"
+            android:textColor="@color/black"/>
+
+
+        <TextView
+            android:id="@+id/cardNameTxt"
+            android:layout_width="224dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="27dp"
+            android:layout_marginEnd="46dp"
+            android:layout_toEndOf="@+id/cardImg"
+            android:text="30,000 year old turtle "
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/cardImg"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/spellcarddefault"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            />
+
+        <ImageView
+            android:id="@+id/starImg"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="110dp"
+            android:layout_marginBottom="11dp"
+            android:src="@drawable/starlevel" />
+
+        <TextView
+            android:id="@+id/cardLevel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="95dp"
+            android:layout_marginBottom="12dp"
+            android:text="4"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/monsterStatsTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cardNameTxt"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="104dp"
+            android:layout_marginTop="22dp"
+            android:text="Beast Warrior / Effect"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/symbolImg"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="27dp"
+            android:layout_marginTop="54dp"
+            android:visibility="gone"
+            android:layout_toEndOf="@+id/cardImg"
+            android:src="@drawable/continuous" />
+
+        <ImageView
+            android:id="@+id/cardAttributeImg"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="6dp"
+            android:layout_marginBottom="19dp"
+            android:src="@drawable/earthattribute" />
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
