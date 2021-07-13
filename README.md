@@ -12,7 +12,7 @@
       -  Models Act as controllers and communicates with view classes through interfaces
       
       
- ## _Screens:
+ ##_Screens
       ![image](https://user-images.githubusercontent.com/72777066/125531823-3136c396-1ccc-481a-a256-b9d5d8284cad.png)
       ![image](https://user-images.githubusercontent.com/72777066/125531897-616b7b4a-296f-4f7f-8065-7ee5ef750084.png)
       ![image](https://user-images.githubusercontent.com/72777066/125532011-2781306c-5ed5-480d-89d3-61333cd4a5fd.png)
