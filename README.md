@@ -31,8 +31,8 @@
    - Glide
    - Architecture
       - MVC Architecture (Model-View-Controller)
-      -  View are thrown into standalone classes
-      -  Models Act as controllers and communicates with view classes through interfaces
+      -  Views are thrown into standalone classes
+      -  Models act as controllers and communicates with view classes through interfaces
       
  
  ## Author
