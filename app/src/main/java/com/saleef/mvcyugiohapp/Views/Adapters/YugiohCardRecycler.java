@@ -18,6 +18,7 @@ import com.saleef.mvcyugiohapp.Common.Factories.ViewMvcFactory;
 import com.saleef.mvcyugiohapp.ViewModel.YugiohCard;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 public class YugiohCardRecycler extends RecyclerView.Adapter<YugiohCardRecycler.YugiohViewHolder> implements CardViewHolderMvc.Listener, Filterable {
@@ -146,23 +147,25 @@ public class YugiohCardRecycler extends RecyclerView.Adapter<YugiohCardRecycler.
             @SuppressWarnings("unchecked")
             @Override
             protected void publishResults(CharSequence constraint, FilterResults results) {
+
                 bindYugiohCards((List<YugiohCard>) results.values);
-                // Pass our filtered resutls and notify adapter
+
             }
         };
     }
     // Adds everything matching our conditions to the new arraylist
     protected List<YugiohCard> getFilteredResults(String filterString){
-        final List<YugiohCard> yugiohCards = mYugiohCards;
 
-        List<YugiohCard> filteredCards = new ArrayList<>(yugiohCards.size());
 
-        for (YugiohCard yugiohCard:yugiohCards){
+        // Hash set is used over arrayList due to maintenance of insertion order
+        // When arrayList adds it shifts all the elements over by 1 takes way longer
+        HashSet<YugiohCard> set = new HashSet<>();
+        for (YugiohCard yugiohCard:originalList){
             if (yugiohCard.getName().toLowerCase().contains(filterString) || yugiohCard.getDesc().toLowerCase().contains(filterString)){
-                filteredCards.add(yugiohCard);
+                set.add(yugiohCard);
             }
         }
-        return filteredCards;
+        return new ArrayList<>(set);
     }
 
 

@@ -1,5 +1,6 @@
 package com.saleef.mvcyugiohapp.UseCases;
 
+
 import android.util.Log;
 
 import com.saleef.mvcyugiohapp.Common.MvcSkeleton.BaseObservableMvc;
@@ -9,7 +10,9 @@ import com.saleef.mvcyugiohapp.Model.YugiohCardSchema;
 import com.saleef.mvcyugiohapp.ViewModel.YugiohCard;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Observable;
@@ -43,8 +46,8 @@ public class FetchBanlistCards extends BaseObservableMvc<FetchBanlistCards.Liste
 
 
     private void onSuccess(List<Card> cards) {
-        List<YugiohCard> yugiohCard = new ArrayList<>(cards.size());
 
+        Set<YugiohCard> cardSet = new HashSet<>(cards.size());
         for (Card card : cards) {
             if (!card.getType().contains("Skill Card") && !card.getType().contains("Token")) {
                 if (card.getType().contains("Link")) { // Link Monsters
@@ -58,7 +61,7 @@ public class FetchBanlistCards extends BaseObservableMvc<FetchBanlistCards.Liste
                     } else{
                         yCard.setOcgBanlistInfo(card.getBanListInfo().getOcgBan());
                     }
-                    yugiohCard.add(yCard);
+                    cardSet.add(yCard);
                 } else if (card.getType().contains("Pendulum")) { // Pendulum Monsters
                     YugiohCard yCard = new YugiohCard(card.getId(), card.getName(), card.getType(),
                             card.getDesc(), card.getAtk(), card.getDef(), card.getLevel(), card.getRace(),
@@ -69,7 +72,7 @@ public class FetchBanlistCards extends BaseObservableMvc<FetchBanlistCards.Liste
                     } else{
                         yCard.setOcgBanlistInfo(card.getBanListInfo().getOcgBan());
                     }
-                    yugiohCard.add(yCard);
+                    cardSet.add(yCard);
                     Log.i("PendulumCard", card.getName());
                 } else if (card.getType().contains("Spell") || card.getType().contains("Trap")) { // Spells and traps
                     YugiohCard yCard = new YugiohCard(card.getId(), card.getName(), card.getType(),
@@ -81,7 +84,7 @@ public class FetchBanlistCards extends BaseObservableMvc<FetchBanlistCards.Liste
                     } else{
                         yCard.setOcgBanlistInfo(card.getBanListInfo().getOcgBan());
                     }
-                    yugiohCard.add(yCard);
+                    cardSet.add(yCard);
                 } else { // Fusion,Normal,Effect Monsters
                     YugiohCard yCard = new YugiohCard(card.getId(), card.getName(), card.getType(),
                             card.getDesc(), card.getAtk(), card.getDef(), card.getLevel(), card.getRace(),
@@ -92,12 +95,12 @@ public class FetchBanlistCards extends BaseObservableMvc<FetchBanlistCards.Liste
                     } else{
                         yCard.setOcgBanlistInfo(card.getBanListInfo().getOcgBan());
                     }
-                    yugiohCard.add(yCard);
+                    cardSet.add(yCard);
                 }
             }
         }
         for (Listener listener:getListeners()){
-            listener.onRetrievalSuccess(yugiohCard);
+            listener.onRetrievalSuccess(new ArrayList<>(cardSet));
         }
     }
 

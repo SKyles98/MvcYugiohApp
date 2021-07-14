@@ -14,7 +14,6 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.github.chrisbanes.photoview.PhotoView;
 import com.saleef.mvcyugiohapp.Common.MvcSkeleton.BaseObservableMvc;
 import com.saleef.mvcyugiohapp.R;
 
@@ -50,12 +49,9 @@ public class CardDetailViewImpl extends BaseObservableMvc<CardDetailViewMvc.List
                 error(R.drawable.monstercarddefault);
         initToolbar();
         // Scuffed way to zoom in and out of image
-        cardPhotoView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                for (Listener listener:getListeners()){
-                    listener.onImageClicked(mYugiohCard.getCardImageUrl());
-                }
+        cardPhotoView.setOnClickListener(v -> {
+            for (Listener listener:getListeners()){
+                listener.onImageClicked(mYugiohCard.getCardImageUrl());
             }
         });
 

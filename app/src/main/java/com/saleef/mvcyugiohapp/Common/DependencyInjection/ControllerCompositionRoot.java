@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 
-import androidx.appcompat.app.AppCompatActivity;
+
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
@@ -42,9 +42,7 @@ public class ControllerCompositionRoot {
     private FragmentActivity getFragmentActivity(){
         return mActivityCompositionRoot.getFragmentActivity();
     }
-    private AppCompatActivity getAppCompatActivity(){
-        return mActivityCompositionRoot.getAppCompatActivity();
-    }
+
 
     private LayoutInflater getLayoutInflater(){
         return LayoutInflater.from(mActivityCompositionRoot.getFragmentActivity());
@@ -100,7 +98,7 @@ public class ControllerCompositionRoot {
     }
 
     public DialogManager getDialogManger(){
-        return new DialogManager(getFragmentActivity(),getFragmentManager());
+        return new DialogManager(getFragmentManager());
     }
 
     private SharedPreferences getSharedPreferences(){

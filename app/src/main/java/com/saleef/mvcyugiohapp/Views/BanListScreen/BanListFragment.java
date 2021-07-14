@@ -227,14 +227,14 @@ public class BanListFragment extends BaseFragment implements BanlistMvc.Listener
     private List<YugiohCard> getTcgCards(){
 
         Cursor cursor = mContentResolver.query(YgoInfoFeeder.BanListTcgCards.CONTENT_URI,YgoInfoFeeder.BanListTcgCards.PROJECTION_ALL,
-                null,null ,null);
+                null,null ,YgoInfoFeeder.BanListTcgCards.CARD_NAME);
         return mCardtoCV.convertBanlistToCards(cursor,currFormat);
     }
 
     private List<YugiohCard> getOcgCards(){
 
         Cursor cursor = mContentResolver.query(YgoInfoFeeder.BanListOcgCards.CONTENT_URI,YgoInfoFeeder.BanListOcgCards.PROJECTION_ALL,
-                null,null ,null);
+                null,null ,YgoInfoFeeder.BanListOcgCards.CARD_NAME);
         return mCardtoCV.convertBanlistToCards(cursor,currFormat);
     }
    private void catchErrorDialogResult(){

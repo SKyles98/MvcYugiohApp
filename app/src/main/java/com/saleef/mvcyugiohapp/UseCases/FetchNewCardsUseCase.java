@@ -10,12 +10,14 @@ import com.saleef.mvcyugiohapp.ViewModel.YugiohCard;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+
 import java.util.List;
 import java.util.Map;
 
+
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.core.Observable;
-import io.reactivex.rxjava3.functions.Function;
+
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class FetchNewCardsUseCase extends BaseObservableMvc<FetchNewCardsUseCase.Listener> {
@@ -54,41 +56,45 @@ public class FetchNewCardsUseCase extends BaseObservableMvc<FetchNewCardsUseCase
 
 
     private void onSuccess(List<Card> cards) {
-        List<YugiohCard> yugiohCard = new ArrayList<>(cards.size());
-
+        List<YugiohCard> newCardz = new ArrayList<>(cards.size());
         for (Card card:cards) {
+
+
+
             if (!card.getType().contains("Skill Card") && !card.getType().contains("Token")) {
                 if (card.getType().contains("Link")) { // Link Monsters
                     YugiohCard yCard = new YugiohCard(card.getId(), card.getName(), card.getType(),
                             card.getDesc(), card.getAtk(), 0, 0, card.getRace(),
                             card.getAttribute(), 0,
                             card.getCardImages().get(0).getImageUrl(), card.getLinkRating());
-                    yugiohCard.add(yCard);
+                    newCardz.add(yCard);
                 } else if (card.getType().contains("Pendulum")) { // Pendulum Monsters
                     YugiohCard yCard = new YugiohCard(card.getId(), card.getName(), card.getType(),
                             card.getDesc(), card.getAtk(), card.getDef(), card.getLevel(), card.getRace(),
                             card.getAttribute(), card.getScale(),
                             card.getCardImages().get(0).getImageUrl(), 0);
-                    yugiohCard.add(yCard);
+                    newCardz.add(yCard);
                     Log.i("PendulumCard", card.getName());
                 } else if (card.getType().contains("Spell") || card.getType().contains("Trap")) { // Spells and traps
                     YugiohCard yCard = new YugiohCard(card.getId(), card.getName(), card.getType(),
                             card.getDesc(), 0, 0, 0, card.getRace(),
                             card.getType(), 0,
                             card.getCardImages().get(0).getImageUrl(), 0);
-                    yugiohCard.add(yCard);
+                    newCardz.add(yCard);
                 } else { // Fusion,Normal,Effect Monsters
                     YugiohCard yCard = new YugiohCard(card.getId(), card.getName(), card.getType(),
                             card.getDesc(), card.getAtk(), card.getDef(), card.getLevel(), card.getRace(),
                             card.getAttribute(), 0,
                             card.getCardImages().get(0).getImageUrl(), 0);
-                    yugiohCard.add(yCard);
+                    newCardz.add(yCard);
                 }
+
 
             }
         }
+
         for (Listener listener:getListeners()){
-            listener.onRetrievalSuccess(yugiohCard);
+            listener.onRetrievalSuccess(newCardz);
         }
     }
     private void onFailure(Throwable throwable){
